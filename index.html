@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <div id="viz-buttons">
+        <!-- <button class="view-button" id="mapbox-view-button">mapbox</button>
+        <button class="view-button" id="tableau-view-button">tableau</button> -->
+    </div>
+
+    <button class="" id="uni-melb">go to university of melbourne</button>
+    <button class="" id="uni-monash">go to monash university</button>
+
+    <div class="view" id="mapbox-view">
+        <div id="map"></div>
+        <div class="map-overlay" id="legend"></div>
+
+        <!-- <div class="map-overlay" id="title">
+            <h2>Building Development Status</h2>
+            <div id="info">
+                <p>Hover over a building!</p>
+            </div>
+        </div> -->
+    </div>
+
+    <div class="view" id="tableau-view" style="width:100%; height:100%;"></div>
+
+    <!-- scripts -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+    <script src="js/index.js"></script>
+    <script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+    <script src="js/tableau.js"></script>
+
+</body>
+
+</html>
