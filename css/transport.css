@@ -1,55 +1,65 @@
 
-    html, body, #transport-map{ 
-        height: 100%;
-        margin: 0; padding: 0; }
-    
-	#map { 
-        width: 100%; 
-        height: 80%;
-    }
+html, body, #transport-map{ 
+    height: 100%;
+    margin: 0; padding: 0; }
 
-    #menu {
-        background: #fff;
-        position: absolute;
-        z-index: 1;
-        top: 20%;
-        right: 10px;
-        border-radius: 3px;
-        width: 120px;
-        border: 1px solid rgba(0, 0, 0, 0.4);
-        font-family: 'Open Sans', sans-serif;
-    }
+#map { 
+    width: 100%; 
+    height: 80%;
+}
 
-    #menu a {
-        font-size: 13px;
-        color: #404040;
-        display: block;
-        margin: 0;
-        padding: 0;
-        padding: 10px;
-        text-decoration: none;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.25);
-        text-align: center;
-    }
+#menu {
+    background: #fff;
+    position: absolute;
+    z-index: 1;
+    top: 20%;
+    right: 10px;
+    border-radius: 3px;
+    width: 120px;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    font-family: 'Open Sans', sans-serif;
+}
 
-    #menu a:last-child {
-        border: none;
-    }
+#menu a {
+    font-size: 13px;
+    color: #404040;
+    display: block;
+    margin: 0;
+    padding: 0;
+    padding: 10px;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    text-align: center;
+}
 
-    #menu a:hover {
-        background-color: #f8f8f8;
-        color: #404040;
-    }
+#menu a:last-child {
+    border: none;
+}
 
-    #menu a.active {
-        background-color: #3887be;
-        color: #ffffff;
-    }
+#menu a:hover {
+    background-color: #f8f8f8;
+    color: #404040;
+}
 
-    #menu a.active:hover {
-        background: #3074a4;
-    }
+#menu a.active {
+    background-color: #3887be;
+    color: #ffffff;
+}
 
-    .btn-group {
-        margin-bottom: 3px;
-    }
+#menu a.active:hover {
+    background: #3074a4;
+}
+
+.btn-group {
+    margin-bottom: 3px;
+}
+
+#x3dom-x3dElement-canvas {
+    width: 100% !important;
+    height: 47% !important;
+}
+
+#x3dElement {
+    width:80%; 
+    left:10%;
+}

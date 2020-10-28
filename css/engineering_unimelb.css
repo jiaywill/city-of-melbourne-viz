@@ -12,3 +12,12 @@ html, body, #mapbox-container {
     margin-bottom: 3px;
 }
 
+#x3dom-x3dElement-canvas {
+    width: 100% !important;
+    height: 47% !important;
+}
+
+#x3dElement {
+    width:80%; 
+    left:10%;
+}
