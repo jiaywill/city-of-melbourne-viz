@@ -1,5 +1,5 @@
 
-    html, body { 
+    html, body, #transport-map{ 
         height: 100%;
         margin: 0; padding: 0; }
     
@@ -12,7 +12,7 @@
         background: #fff;
         position: absolute;
         z-index: 1;
-        top: 15%;
+        top: 20%;
         right: 10px;
         border-radius: 3px;
         width: 120px;
@@ -48,4 +48,8 @@
 
     #menu a.active:hover {
         background: #3074a4;
+    }
+
+    .btn-group {
+        margin-bottom: 3px;
     }

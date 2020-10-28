@@ -1,0 +1,29 @@
+html, body, #mapbox-container { 
+    height: 100%;
+}
+
+#map { 
+    display: inline-block;
+    margin-left: 3%;
+    width: 70%; 
+    height: 75%;
+}
+
+#uni-description {
+    display: inline-block;
+    width: 20%; 
+    vertical-align:top;
+}
+
+.btn-group {
+    margin-bottom: 3px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+#engineer-building-p {
+    font-weight: bold;
+}
+

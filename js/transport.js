@@ -4,6 +4,8 @@ var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/elliothill/ckgjdav8h0ztc19o2419r65px'
 });
+// all views
+var views = document.getElementsByClassName("view");
 
 map.on('load', function () {
 
@@ -121,3 +123,57 @@ for (var i = 0; i < toggleableLayerIds.length; i++) {
     var layers = document.getElementById('menu');
     layers.appendChild(link);
 }
+
+function addVizButtons() {
+    var buttonIds = ["transport-map-button", "flinders-button"];
+    var buttonHTML = ["Transport map", "Flinders street station"]
+
+    // iterate each view button and add them to viz-buttons
+    for (var i = 0; i < buttonIds.length; i++) {
+        var button = document.createElement("button");
+        button.className = "view-button btn btn-primary";
+        button.id = buttonIds[i];
+        button.innerHTML = buttonHTML[i];
+        document.getElementById("viz-buttons").appendChild(button);
+    }
+
+
+    // add click event listeners
+    var viewButtons = document.getElementsByClassName("view-button");
+
+    for (i = 0; i < viewButtons.length; i++) {
+        viewButtons[i].onclick = toggleView;
+    }
+}
+// toggle view: only show the selected view and hide other views
+function toggleView(e) {
+    var viewId = this.id.slice(0, -7);
+    console.log(viewId);
+    for (i = 0; i < views.length; i++) {
+        if (views[i].id === viewId) {
+            views[i].style.display = "block";
+        }
+        else {
+            views[i].style.display = "none";
+        }
+    }
+
+}
+
+// initialize page
+// add onclick events to view buttons
+function initPage() {
+    // only show the mapbox page (hide other views)
+    for (i = 0; i < views.length; i++) {
+        if (views[i].id === "transport-map") {
+            views[i].style.display = "block";
+        }
+        else {
+            views[i].style.display = "none";
+        }
+    }
+
+    addVizButtons();
+}
+
+window.onload = initPage

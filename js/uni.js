@@ -2,36 +2,13 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoid2lsbGppYXkiLCJhIjoiY2tldW1tbWhlMXFoaDJ3dDh0d
 
 var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/willjiay/ckg7zl39o19nd1apqwvp0lltk'
+    style: 'mapbox://styles/willjiay/ckg7zl39o19nd1apqwvp0lltk',
 });
 // all views
 var views = document.getElementsByClassName("view");
 
 map.on('load', function () {
 
-});
-
-// fly to melb uni
-document.getElementById('uni-melb').addEventListener('click', function () {
-    map.flyTo({
-        center: [
-            // longtitude then latitude
-            144.961166, 
-            -37.796368
-        ],
-        essential: true // this animation is considered essential with respect to prefers-reduced-motion
-    });
-});
-
-// fly to monash uni
-document.getElementById('uni-monash').addEventListener('click', function () {
-    map.flyTo({
-        center: [
-            145.136215,
-            -37.910522
-        ],
-        essential: true // this animation is considered essential with respect to prefers-reduced-motion
-    });
 });
 
 map.addControl(new mapboxgl.NavigationControl());
@@ -51,58 +28,88 @@ function toggleView(e) {
 
 }
 
+function addListener() {
+    // fly to melb uni
+    document.getElementById('uni-melb-button').addEventListener('click', function () {
+        map.setZoom(17);
+        map.flyTo({
+            center: [
+                // longtitude then latitude
+                144.96130134414312,
+                -37.7970796
+            ],
+            essential: true // this animation is considered essential with respect to prefers-reduced-motion
+        });
+        // change uni description
+        changeUniDesc("University of Melbourne");
+    });
+
+    // fly to rmit uni
+    document.getElementById('uni-rmit-button').addEventListener('click', function () {
+        map.setZoom(17);
+        map.flyTo({
+            center: [
+                144.963,
+                -37.808
+            ],
+            essential: true // this animation is considered essential with respect to prefers-reduced-motion
+        });
+
+        // change uni description
+        changeUniDesc("RMIT University");
+    });
+}
+
+// change uni description
+function changeUniDesc(uni) {
+    var uniMelb = ["Founded in 1853", "52,475 students enrolled (2018)", "41st QS World University Ranking (2021)", 
+                    "Top university for Computer Science & Information Systems; Dentistry; Law; etc. in Australia"];
+    var uniRMIT = ["Founded in 1992", "87,465 students enrolled (2017)", "223rd QS World University Ranking (2021)",
+                    "Top university for Art and Design in Australia"];
+    var selected = null;  // selected uni  
+
+    if (uni === "University of Melbourne") {
+        selected = uniMelb;
+    }
+    else {
+        selected = uniRMIT;
+    }
+
+    document.getElementById("uni-name").innerHTML = uni;
+    liTags = document.getElementById("uni-description").getElementsByTagName("li");
+
+    for (i = 0; i < uniMelb.length; ++i) {
+        liTags[i].innerHTML = selected[i];
+    } 
+
+    // only show the enginnering building link when unimelb is selected
+    engiPara = document.getElementById("engineer-building-p");
+    if (uni === "University of Melbourne") {
+        engiPara.style.display = "inline-block";
+    }
+    else {
+        engiPara.style.display = "none";
+    }
+}
+
 // initialize page
 // add onclick events to view buttons
 function initPage() {
-    initTableau();
-
-    // only show the mapbox page (hide other views)
-    for (i = 0; i < views.length; i++) {
-        if (views[i].id === "tableau-view") {
-            views[i].style.display = "block";
-        }
-        else {
-            views[i].style.display = "none";
-        }
-    }
-
+    addUniButtons();
+    addListener();
 }
 
-// initialize Tableau
-function initTableau() {
-    var containerDiv = document.getElementById("tableau-view"),
-        url = "http://public.tableau.com/views/submission_16020501528980/Dashboard",
-        options = {
-            hideTabs: true,
-            onFirstInteractive: function () {
-                // after tableau has finished loading
-                console.log("Run this code when the viz has finished loading.");
-                addVizButtons();
-            }
-        };
+function addUniButtons() {
+    var buttonIds = ["uni-melb-button", "uni-rmit-button"];
+    var buttonHTML = ["University of Melbourne  ", "RMIT"]
 
-    var viz = new tableau.Viz(containerDiv, url, options);
-    // Create a viz object and embed it in the container div.
-}
-
-function addVizButtons(){
-    var button1 = document.createElement("button");
-    button1.className = "view-button";
-    button1.id = "mapbox-view-button"
-    button1.innerHTML = "mapbox"
-    document.getElementById("viz-buttons").appendChild(button1);
-    
-    var button2 = document.createElement("button");
-    button2.className = "view-button";
-    button2.id = "tableau-view-button"
-    button2.innerHTML = "tableau"
-	document.getElementById("viz-buttons").appendChild(button2);
-
-    // add click event listeners
-    var viewButtons = document.getElementsByClassName("view-button");
-
-    for (i = 0; i < viewButtons.length; i++) {
-        viewButtons[i].onclick = toggleView;
+    // iterate each view button and add them to viz-buttons
+    for (var i = 0; i < buttonIds.length; i++) {
+        var button = document.createElement("button");
+        button.className = "view-button btn btn-primary";
+        button.id = buttonIds[i];
+        button.innerHTML = buttonHTML[i];
+        document.getElementById("uni-buttons").appendChild(button);
     }
 }
 

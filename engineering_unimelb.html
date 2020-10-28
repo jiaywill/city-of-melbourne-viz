@@ -3,7 +3,7 @@
 
 <head>
     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css">
-    <link rel="stylesheet" href="css/uni.css">
+    <link rel="stylesheet" href="css/engineering_unimelb.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 </head>
@@ -32,39 +32,22 @@
         </nav>
     </div>
 
-    <div id="viz-buttons">
-        <!-- <button class="view-button" id="mapbox-view-button">mapbox</button>
-        <button class="view-button" id="tableau-view-button">tableau</button> -->
-    </div>
+    <h4 class="text-center">Engineering Building in the University of Melbourne</h4>
 
     <div class="text-center">
-        <div class="btn-group" id="uni-buttons">
+        <div class="btn-group" id="viz-buttons">
         </div>
     </div>
 
-    <!-- <button class="" id="uni-melb">go to university of melbourne</button>
-    <button class="" id="uni-rmit">go to monash university</button> -->
+    <div class="view" id="3d-model"></div>
 
     <div class="view" id="mapbox-container">
         <div id="map"></div>
-        <ul id="uni-description">
-            <h4 id="uni-name">University of Melbourne</h4>
-            <li>Founded in 1853</li>
-            <li>52,475 students enrolled (2018)</li>
-            <li>41st QS World University Ranking (2021)</li>
-            <li>Top university for Computer Science & Information Systems; Dentistry; Law; etc. in Australia</li>
-            <p id="engineer-building-p">Explore the <a id="engineer-building-link" href="engineering_unimelb.html">Engineering building</a></p>
-        </ul>
     </div>
-
-    <div class="view" id="tableau-view" style="width:100%; height:100%;"></div>
 
     <!-- scripts -->
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
-    <!-- <script src="js/index.js"></script> -->
-    <script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
-    <script src="js/uni.js"></script>
-
+    <script src="js/engineering_unimelb.js"></script>
 
 </body>
 
